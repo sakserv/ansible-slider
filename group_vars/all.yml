@@ -7,7 +7,7 @@ slider_install_dir: /usr/local/src/slider
 slider_archive: /tmp/slider.tar.gz
 
 hadoop_conf_dir: /usr/local/src/hadoop_install/hadoop/etc/
-hdfs_defaultfs: hdfs://localhost:8020
+hdfs_defaultfs: hdfs://10.0.2.15:9000
 yarn_resourcemanager_address: localhost:8050
 yarn_resourcemanager_scheduler_address: localhost:8030
 zk_quorum: localhost:2181
