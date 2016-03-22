@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+  <property>
+    <name>{{ hadoop_conf_dir }}</name>
+    <value>/etc/hadoop/conf</value>
+  </property>
+  <property>
+    <name>hadoop.registry.zk.quorum</name>
+    <value>{{ zk_quorum }}</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.address</name>
+    <value>{{ yarn_resourcemanager_address }}</value>
+  </property>
+  <property>
+    <name>yarn.resourcemanager.scheduler.address</name>
+    <value>{{ yarn_resourcemanager_scheduler_address }}</value>
+  </property>
+  <property>
+    <name>fs.defaultFS</name>
+    <value>{{ hdfs_defaultfs }}</value>
+  </property>
+  <property>
+    <name>yarn.application.classpath</name>
+    <value>/usr/local/src/hadoop_install/hadoop/etc/hadoop:/usr/local/src/hadoop_install/hadoop/etc/hadoop:/usr/local/src/hadoop_install/hadoop/etc/hadoop:/usr/local/src/hadoop_install/hadoop/share/hadoop/common/lib/*:/usr/local/src/hadoop_install/hadoop/share/hadoop/common/*:/usr/local/src/hadoop_install/hadoop/share/hadoop/hdfs:/usr/local/src/hadoop_install/hadoop/share/hadoop/hdfs/lib/*:/usr/local/src/hadoop_install/hadoop/share/hadoop/hdfs/*:/usr/local/src/hadoop_install/hadoop/share/hadoop/yarn/lib/*:/usr/local/src/hadoop_install/hadoop/share/hadoop/yarn/*:/usr/local/src/hadoop_install/hadoop/share/hadoop/mapreduce/lib/*:/usr/local/src/hadoop_install/hadoop/share/hadoop/mapreduce/*:/contrib/capacity-scheduler/*.jar:/usr/local/src/hadoop_install/hadoop/share/hadoop/yarn/*:/usr/local/src/hadoop_install/hadoop/share/hadoop/yarn/lib/*</value>
+  </property>
+</configuration>

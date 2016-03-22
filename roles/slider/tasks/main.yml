@@ -1,0 +1,26 @@
+---
+- name: Cleaning up install directory from previous run
+  file: path={{ slider_install_dir }} state=absent 
+
+- name: Creating install directory
+  file: path={{ slider_install_dir }} state=directory recurse=yes
+
+- name: Extract slider to install dir
+  shell: "tar -zxvf {{ slider_archive }} -C {{ slider_install_dir }} --strip-components=1"
+
+- name: Adding slider bin dir to PATH
+  shell: ". /etc/profile && echo \"export PATH=$PATH:{{ slider_install_dir }}/bin\" >> /etc/profile"
+
+- name: Populating and copying configuration
+  template: src={{ item.src }} dest="{{ slider_install_dir}}/conf/{{ item.dest }}" mode=0744
+  with_items:
+          - { src: 'slider-client.xml.j2', dest: 'slider-client.xml' }
+
+- name: Creating the hadoop group
+  group: name=hadoop state=present gid=2000
+
+- name: Creating the slider group
+  group: name=slider state=present gid=2004
+
+- name: Creating the slider user
+  user: name=slider uid=2004 groups=slider,hadoop
